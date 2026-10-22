@@ -7,12 +7,13 @@ public class TugasBioskop23 {
         int totalTiketTerjual = 0;
         double totalHargaPenjualan = 0;
         int jumlahTiket;
+        //boolean ulang = true;
+        String nextTiket;
 
         System.out.println("=== PROGRAM PENJUALAN TIKET BIOSKOP ===");
         System.out.println("(Ketik 0 untuk mengakhiri transaksi harian)");
 
         while (true) {
-
             System.out.print("Masukkan jumlah tiket yang dibeli pelanggan: ");
             jumlahTiket = sc.nextInt();
 
@@ -20,6 +21,7 @@ public class TugasBioskop23 {
                 System.out.println("Transaksi harian selesai.");
                 break;
             }
+
             if (jumlahTiket < 0) {
                 System.out.println("Jumlah tiket tidak valid! Masukkan angka positif.");
                 continue;
@@ -27,7 +29,7 @@ public class TugasBioskop23 {
 
             double totalHargaTransaksi = jumlahTiket * HARGA_TIKET;
             double diskon = 0;
-             
+
             if (jumlahTiket > 10) {
                 diskon = 0.15;
             } else if (jumlahTiket > 4) {
@@ -41,6 +43,13 @@ public class TugasBioskop23 {
 
             System.out.println("Total bayar transaksi ini: Rp " + totalHargaTransaksi);
             System.out.println("----------------------------------------");
+            System.out.println("Apakah anda memasukkan pembelian tiket lagi (Y/T)?");
+            sc.nextLine();
+            nextTiket = sc.nextLine();
+            
+            if (nextTiket.equalsIgnoreCase("T"))
+                break;
+            
         }
 
         System.out.println("\n=== REKAP PENJUALAN HARIAN ===");
